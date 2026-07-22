@@ -195,5 +195,4 @@
 }
 @utility animate-float {
   animation: float-slow 6s ease-in-out infinite;
-  }
 }
