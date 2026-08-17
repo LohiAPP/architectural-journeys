@@ -3,7 +3,7 @@ export function Footer() {
     <footer className="bg-[var(--cream)] px-6 pb-10 pt-32 md:px-10 md:pt-48">
       <div className="mx-auto max-w-[1600px]">
         <div className="flex items-center gap-4 md:gap-6">
-          <img src="/logoM.jpeg" alt="Logo" className="h-16 md:h-24 w-auto object-contain grayscale opacity-80" />
+          <img src="/logoM.jpeg" alt="Logo" className="h-16 md:h-24 w-auto object-contain mix-blend-multiply opacity-80" />
           <div className="flex items-baseline gap-3 md:gap-4 mt-1">
             <span className="font-serif text-2xl md:text-4xl text-[var(--ink)] tracking-tight">Manushyalaya</span>
             <span className="text-[var(--ink)] text-[10px] md:text-sm tracking-[0.4em] uppercase font-medium opacity-80">
