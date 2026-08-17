@@ -17,16 +17,16 @@ export function Nav({ forceSolid = false }: { forceSolid?: boolean }) {
   const textColor = s ? "text-[var(--ink)]" : "text-[var(--cream)]";
   const borderColor = s ? "border-[var(--ink)]" : "border-[var(--cream)]";
   
-  // Since the original logo image has a black background:
-  // On light nav (s=true): invert the image (black bg -> white bg, bright lines -> dark lines), then mix-blend-multiply (white bg -> transparent).
-  // On dark nav (s=false): mix-blend-screen (black bg -> transparent, bright lines stay bright).
-  const logoBlend = s ? "invert mix-blend-multiply" : "mix-blend-screen opacity-90";
+  // Assuming the new logon.jpeg has a white background:
+  // On light nav (s=true): mix-blend-multiply removes the white background.
+  // On dark nav (s=false): invert makes the background black and logo white, then mix-blend-screen removes the black background.
+  const logoBlend = s ? "mix-blend-multiply" : "invert mix-blend-screen brightness-200";
 
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${s ? "backdrop-blur-xl bg-[var(--cream)]/90 border-b border-[var(--ink)]/10" : ""}`}>
       <nav className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-4 md:px-10 md:py-4">
         <Link to="/" className="flex items-center gap-4 md:gap-6">
-          <img src="/logoM.jpeg" alt="Logo" className={`h-16 md:h-24 w-auto object-contain transition-all duration-500 ${logoBlend}`} />
+          <img src="/logon.jpeg" alt="Logo" className={`h-16 md:h-24 w-auto object-contain transition-all duration-500 ${logoBlend}`} />
           <div className="flex items-baseline gap-3 md:gap-4 mt-1">
             <span className={`font-serif text-2xl md:text-4xl tracking-tight transition-colors duration-500 ${textColor}`}>Manushyalaya</span>
             <span className={`text-[10px] md:text-sm tracking-[0.4em] uppercase font-medium opacity-80 transition-colors duration-500 ${textColor}`}>
