@@ -7,6 +7,8 @@ import { CustomCursor } from '../components/CustomCursor';
 import { Hero } from '../components/Hero';
 import featuredImg from "@/assets/featured.jpg";
 
+import servicesHeroImg from "@/assets/services_hero.jpg";
+
 export const Route = createFileRoute('/services')({
   component: ServicesPage,
 });
@@ -20,6 +22,7 @@ function ServicesPage() {
       {/* We no longer need forceSolid since we have a hero image */}
       <Nav />
       <Hero 
+        image={servicesHeroImg}
         titleLine1="The Five" 
         titleLine2={<span className="text-[var(--clay)] italic">Disciplines.</span>} 
         description="A holistic approach to spaces — from architectural conception to bespoke interiors and native landscaping."
