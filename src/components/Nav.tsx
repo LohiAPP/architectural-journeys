@@ -16,7 +16,11 @@ export function Nav({ forceSolid = false }: { forceSolid?: boolean }) {
   const s = forceSolid || scrolled;
   const textColor = s ? "text-[var(--ink)]" : "text-[var(--cream)]";
   const borderColor = s ? "border-[var(--ink)]" : "border-[var(--cream)]";
-  const logoBlend = s ? "mix-blend-multiply" : "invert mix-blend-screen brightness-200";
+  
+  // Since the original logo image has a black background:
+  // On light nav (s=true): invert the image (black bg -> white bg, bright lines -> dark lines), then mix-blend-multiply (white bg -> transparent).
+  // On dark nav (s=false): mix-blend-screen (black bg -> transparent, bright lines stay bright).
+  const logoBlend = s ? "invert mix-blend-multiply" : "mix-blend-screen opacity-90";
 
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${s ? "backdrop-blur-xl bg-[var(--cream)]/90 border-b border-[var(--ink)]/10" : ""}`}>
