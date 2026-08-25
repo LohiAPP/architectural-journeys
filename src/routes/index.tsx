@@ -270,7 +270,6 @@ function Process() {
               </div>
               <h3 className="font-display text-3xl md:text-4xl">{s.t}</h3>
               <p className="mt-4 text-sm leading-relaxed text-[var(--cream)]/70 max-w-[22ch]">{s.d}</p>
-              <span className="mt-6 block text-[10px] tracking-[0.3em] uppercase text-[var(--cream)]/40">Step 0{i + 1}</span>
             </li>
           ))}
         </ol>
