@@ -16,6 +16,8 @@ import { Footer } from "@/components/Footer";
 import { CustomCursor } from "@/components/CustomCursor";
 import { Magnetic } from "@/components/Magnetic";
 import { Hero } from "@/components/Hero";
+import { Services } from "./services";
+import { DisciplineModal, type DisciplineKey } from "@/components/DisciplineModal";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -418,6 +420,7 @@ function FinalCTA() {
 
 function Index() {
   const p = useScrollProgress();
+  const [activeDiscipline, setActiveDiscipline] = useState<DisciplineKey | null>(null);
 
   return (
     <main className="relative bg-[var(--cream)] text-[var(--ink)]">
@@ -427,6 +430,7 @@ function Index() {
       <Hero image={heroImg} />
       <Marquee />
       <BrandPartners />
+      <Services onDisciplineClick={setActiveDiscipline} />
       <Featured />
       <Works />
       <Philosophy />
@@ -437,6 +441,11 @@ function Index() {
       <Testimonial />
       <FinalCTA />
       <Footer />
+
+      <DisciplineModal 
+        disciplineKey={activeDiscipline} 
+        onClose={() => setActiveDiscipline(null)} 
+      />
     </main>
   );
 }

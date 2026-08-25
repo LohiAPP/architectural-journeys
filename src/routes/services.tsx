@@ -45,7 +45,7 @@ function ServicesPage() {
   );
 }
 
-function Services({ onDisciplineClick }: { onDisciplineClick: (key: DisciplineKey) => void }) {
+export function Services({ onDisciplineClick }: { onDisciplineClick: (key: DisciplineKey) => void }) {
   const s = [
     { n: "01", t: "Architecture" as DisciplineKey, d: "Residences, retreats, cultural and commercial buildings from concept through construction." },
     { n: "02", t: "Interior Design" as DisciplineKey, d: "Interiors conceived alongside the shell — from millwork to lighting temperature." },
