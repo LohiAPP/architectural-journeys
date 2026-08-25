@@ -430,10 +430,10 @@ function Index() {
       <Hero image={heroImg} />
       <Marquee />
       <BrandPartners />
-      <Services onDisciplineClick={setActiveDiscipline} />
       <Featured />
       <Works />
       <Philosophy />
+      <Services onDisciplineClick={setActiveDiscipline} />
       <Process />
       <Materials />
       <Metrics />
