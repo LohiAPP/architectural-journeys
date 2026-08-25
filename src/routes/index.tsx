@@ -219,7 +219,7 @@ function Works() {
 
 function Philosophy() {
   return (
-    <section id="studio" className="relative px-6 py-40 md:px-10 md:py-56">
+    <section id="studio" className="relative px-6 pt-40 pb-24 md:px-10 md:pt-56 md:pb-32">
       <div className="mx-auto max-w-[1600px]">
         <p className="text-hairline text-[var(--ink-soft)]">The Studio</p>
         <h2 className="font-display mt-8 max-w-[16ch] text-[13vw] leading-[0.92] md:text-[7.5vw]">
@@ -253,7 +253,7 @@ function Process() {
     { n: "V", t: "Deliver", d: "Interiors, landscape and stewardship — handed over as one whole." },
   ];
   return (
-    <section id="process" className="relative bg-[var(--obsidian)] px-6 py-32 text-[var(--cream)] md:px-10 md:py-48 overflow-hidden">
+    <section id="process" className="relative bg-[var(--obsidian)] px-6 pt-24 pb-32 text-[var(--cream)] md:px-10 md:pt-32 md:pb-48 overflow-hidden">
       <img src={darkImg} alt="" loading="lazy" className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-25" />
       <div className="relative mx-auto max-w-[1600px]">
         <p className="text-hairline text-[var(--cream)]/60">The Journey — Five Movements</p>

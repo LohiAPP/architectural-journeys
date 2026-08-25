@@ -54,7 +54,7 @@ export function Services({ onDisciplineClick }: { onDisciplineClick: (key: Disci
     { n: "05", t: "Project Management" as DisciplineKey, d: "End-to-end site supervision, vendor coordination, and seamless project execution." },
   ];
   return (
-    <section id="services" className="bg-[var(--sand)] px-6 py-32 md:px-10 md:py-48">
+    <section id="services" className="bg-[var(--sand)] px-6 py-24 md:px-10 md:py-32">
       <div className="mx-auto max-w-[1600px]">
         <div className="flex items-end justify-between">
           <p className="text-hairline text-[var(--ink-soft)]">Practice — Five Disciplines</p>
