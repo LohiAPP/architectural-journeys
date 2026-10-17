@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import heroImg from "@/assets/hero.jpg";
 import featuredImg from "@/assets/featured.jpg";
@@ -170,45 +170,73 @@ function Featured() {
 
 function Works() {
   const items = [
-    { img: work1, name: "Verandah House", place: "Bengaluru, IN", year: "2024", tag: "Residence" },
-    { img: work2, name: "Ateliér Kaia", place: "Goa, IN", year: "2023", tag: "Interior" },
-    { img: work3, name: "The Cantilever", place: "Coonoor, IN", year: "2023", tag: "Retreat" },
-    { img: work4, name: "Maison Noir", place: "Udaipur, IN", year: "2022", tag: "Hospitality" },
+    {
+      id: "monolith-flute",
+      img: "/projects/Mr. Aditya/2 (3).jpeg",
+      name: "The Monolith & Flute Residence",
+      place: "Contemporary Apartment",
+      year: "2024",
+      tag: "Interior Architecture",
+      desc: "Juxtaposing bookmatched marble surfaces with vertical fluted timber and reeded glass partitions."
+    },
+    {
+      id: "sacred-contemporary",
+      img: "/projects/Mr.Mansa/WhatsApp Image 2026-10-10 at 3.09.30 PM.jpeg",
+      name: "The Sacred & Contemporary Abode",
+      place: "Family Residence",
+      year: "2024",
+      tag: "Transitional Modernism",
+      desc: "A harmonious dialogue between traditional Indian craftsmanship and sleek contemporary joinery."
+    },
+    {
+      id: "tridasa-arches",
+      img: "/projects/my home tridaas/WhatsApp Image 2026-10-10 at 3.14.23 PM.jpeg",
+      name: "The Tridasa Arches",
+      place: "High-Rise Suite",
+      year: "2024",
+      tag: "Neo-Classical",
+      desc: "Classical architectural Roman arches celebrating continuous spatial rhythm and bespoke millwork."
+    },
   ];
   return (
-    <section className="bg-[var(--cream)] px-6 pt-40 md:px-10">
+    <section id="projects" className="bg-[var(--cream)] px-6 pt-40 md:px-10">
       <div className="mx-auto max-w-[1600px]">
         <div className="mb-20 flex items-end justify-between">
-          <p className="text-hairline text-[var(--ink-soft)]">Selected Works — 2020 / 2025</p>
-          <a href="#" className="text-hairline underline underline-offset-8 decoration-[var(--clay)]">All Projects</a>
+          <div>
+            <p className="text-hairline text-[var(--ink-soft)]">Selected Works — Three Sanctuaries</p>
+            <h2 className="font-display text-4xl md:text-5xl mt-2">Crafted Sanctuaries</h2>
+          </div>
+          <Link to="/projects" className="text-hairline underline underline-offset-8 decoration-[var(--clay)] hover:text-[var(--clay)] transition-colors">
+            All Projects →
+          </Link>
         </div>
 
-        <div className="grid grid-cols-12 gap-x-6 gap-y-32">
+        <div className="grid grid-cols-12 gap-x-6 gap-y-24 md:gap-y-32">
           {items.map((it, i) => {
             const layouts = [
               "col-span-12 md:col-span-7 md:col-start-1",
-              "col-span-12 md:col-span-5 md:col-start-8 md:mt-40",
-              "col-span-12 md:col-span-6 md:col-start-2",
-              "col-span-12 md:col-span-5 md:col-start-8 md:-mt-24",
+              "col-span-12 md:col-span-5 md:col-start-8 md:mt-24",
+              "col-span-12 md:col-span-8 md:col-start-3 md:mt-12",
             ];
-            const heights = ["aspect-[4/5]", "aspect-[3/4]", "aspect-[5/6]", "aspect-[4/5]"];
+            const heights = ["aspect-[4/5]", "aspect-[3/4]", "aspect-[16/10]"];
             return (
-              <a key={it.name} href="#" className={`group block ${layouts[i]}`}>
-                <div className={`relative overflow-hidden ${heights[i]}`}>
+              <Link key={it.name} to="/projects" hash={it.id} className={`group block ${layouts[i]}`}>
+                <div className={`relative overflow-hidden rounded-xl ${heights[i]}`}>
                   <img src={it.img} alt={it.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-[1.06]" />
-                  <div className="absolute inset-0 bg-[var(--ink)]/0 transition-colors duration-500 group-hover:bg-[var(--ink)]/10" />
-                  <div className="absolute left-4 top-4 rounded-full bg-[var(--cream)]/85 px-3 py-1 text-[10px] uppercase tracking-[0.24em] shadow-sm">
+                  <div className="absolute inset-0 bg-[var(--ink)]/0 transition-colors duration-500 group-hover:bg-[var(--ink)]/15" />
+                  <div className="absolute left-4 top-4 rounded-full bg-[var(--cream)]/85 px-3 py-1 text-[10px] uppercase tracking-[0.24em] shadow-sm font-medium">
                     {it.tag}
                   </div>
                 </div>
-                <div className="mt-6 flex items-baseline justify-between">
+                <div className="mt-6 flex flex-col md:flex-row md:items-baseline md:justify-between gap-2">
                   <div>
-                    <h3 className="font-display text-3xl md:text-4xl">{it.name}</h3>
+                    <h3 className="font-display text-3xl md:text-4xl group-hover:text-[var(--clay)] transition-colors">{it.name}</h3>
                     <p className="mt-1 text-sm text-[var(--ink-soft)]">{it.place} · {it.year}</p>
+                    <p className="mt-2 text-xs text-[var(--ink-soft)] max-w-lg">{it.desc}</p>
                   </div>
                   <span className="text-hairline text-[var(--ink-soft)]">0{i + 1} / 0{items.length}</span>
                 </div>
-              </a>
+              </Link>
             );
           })}
         </div>

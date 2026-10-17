@@ -21,7 +21,7 @@ export function Nav({ forceSolid = false }: { forceSolid?: boolean }) {
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${s ? "backdrop-blur-xl bg-[var(--cream)]/90 border-b border-[var(--ink)]/10" : ""}`}>
       <nav className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-4 md:px-10 md:py-4">
         <Link to="/" className="flex items-center gap-4 md:gap-6">
-          <img src="/logon.png" alt="Logo" className="h-16 md:h-24 w-auto object-contain transition-all duration-500" />
+          <img src="/logon.png" alt="Logo" className="h-24 md:h-32 w-auto object-contain transition-all duration-500" />
           <div className="flex items-baseline gap-3 md:gap-4 mt-1">
             <span className={`font-serif text-2xl md:text-4xl tracking-tight transition-colors duration-500 ${textColor}`}>Manushyalaya</span>
             <span className={`text-[10px] md:text-sm tracking-[0.4em] uppercase font-medium opacity-80 transition-colors duration-500 ${textColor}`}>
@@ -32,10 +32,15 @@ export function Nav({ forceSolid = false }: { forceSolid?: boolean }) {
         <ul className="hidden items-center gap-10 md:flex">
           {["Home", "About Us", "Services", "Projects", "Contact"].map(l => {
             const isServices = l === "Services";
+            const isProjects = l === "Projects";
             return (
               <li key={l}>
                 {isServices ? (
                   <Link to="/services" className={`text-hairline opacity-70 transition-all duration-500 hover:opacity-100 ${textColor}`}>
+                    {l}
+                  </Link>
+                ) : isProjects ? (
+                  <Link to="/projects" className={`text-hairline opacity-70 transition-all duration-500 hover:opacity-100 ${textColor}`}>
                     {l}
                   </Link>
                 ) : (

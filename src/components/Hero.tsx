@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "@tanstack/react-router";
 import { Magnetic } from "@/components/Magnetic";
 
 interface HeroProps {
@@ -8,6 +9,7 @@ interface HeroProps {
   titleLine2?: React.ReactNode;
   description?: string;
   buttonText?: string;
+  buttonLink?: string;
 }
 
 export function Hero({
@@ -20,7 +22,8 @@ export function Hero({
     </>
   ),
   description = "An independent studio designing quiet, human-scaled buildings that age with grace — from courtyard homes to hillside retreats.",
-  buttonText = "VIEW PORTFOLIO →"
+  buttonText = "VIEW PORTFOLIO →",
+  buttonLink = "/projects"
 }: HeroProps) {
   const [y, setY] = useState(0);
   
@@ -58,7 +61,7 @@ export function Hero({
         VISION · CRAFT · SILENCE
       </div>
 
-      <div className="absolute inset-0 flex flex-col justify-between px-6 pb-10 pt-32 md:px-14 md:pb-14">
+      <div className="absolute inset-0 flex flex-col justify-between px-6 pb-10 pt-40 md:px-14 md:pt-48 md:pb-14">
         <div className="flex items-center justify-between text-[var(--cream)]/80">
           <span className="text-hairline">Est. 2004 — Hyderabad & Vijayawada · India</span>
           <span className="text-hairline hidden md:block">N 12°58′ · E 77°35′</span>
@@ -82,9 +85,11 @@ export function Hero({
             </p>
             <div className="flex items-center gap-4">
               {buttonText && (
-                <Magnetic className="rounded-full bg-[var(--cream)] px-7 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-[var(--ink)]">
-                  {buttonText}
-                </Magnetic>
+                <Link to={buttonLink}>
+                  <Magnetic className="rounded-full bg-[var(--cream)] px-7 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-[var(--ink)] cursor-pointer">
+                    {buttonText}
+                  </Magnetic>
+                </Link>
               )}
             </div>
           </div>
